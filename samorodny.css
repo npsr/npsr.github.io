@@ -480,3 +480,31 @@ strong {
         font-size: .6em;
     }
 }
+
+
+
+
+@media print {
+    body {
+        font-size: .9em;
+    }
+    #it-is-my-home div figure p:nth-child(2) {
+        text-shadow: none;
+    }
+    #curriculum {
+        margin-bottom: 0;
+    }
+    #curriculum ul li {
+        display: inline-block;
+    }
+    #curriculum ul li:after {
+        content: ', ';
+    }
+    #curriculum a i {
+        display: none;
+    }
+    footer {
+        padding: 0;
+    }
+
+}

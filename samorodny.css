@@ -488,6 +488,15 @@ strong {
     body {
         font-size: .9em;
     }
+    #it-is-my-home div img {
+    margin-top: 1.1em;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+    #it-is-my-home div figure p:nth-child(1) span {
+        display: none;
+    }
     #it-is-my-home div figure p:nth-child(2) {
         text-shadow: none;
     }
@@ -505,6 +514,9 @@ strong {
     }
     footer {
         padding: 0;
+    }
+    #clause {
+        font-size: .6em;
     }
 
 }

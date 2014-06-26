@@ -1,4 +1,7 @@
-/* reset */
+/*
+ RESET
+ ===============================================================
+ */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -43,7 +46,10 @@ table {
     border-spacing: 0;
 }
 
-/* begin */
+/*
+ GLOBALS
+ ===============================================================
+ */
 @font-face {
     font-family: 'icomoon';
     src:url('fonts/icomoon.eot?-gsq92j');
@@ -90,6 +96,11 @@ p {
 strong {
     font-weight: 700;
 }
+
+/*
+ ICONS
+ ===============================================================
+ */
 [class^="icon-"], [class*=" icon-"] {
     font-family: 'icomoon';
     speak: none;
@@ -116,6 +127,15 @@ strong {
 }
 .icon-hourglass:before {
     content: "\e604";
+}
+.icon-mobile:before {
+    content: "\e605";
+}
+.icon-paperplane:before {
+    content: "\e606";
+}
+.icon-location:before {
+    content: "\e607";
 }
 
 /*
@@ -178,10 +198,10 @@ strong {
   transition: all .2s ease-in;
 }
 #it-is-my-home div figure p:nth-child(1) span a:hover {
-  -webkit-opacity: .9;
-  -moz-opacity: .9;
-  opacity: .9;
-  text-shadow: -10px 10px 0px #1e1c20;
+    -webkit-opacity: .9;
+    -moz-opacity: .9;
+    opacity: .9;
+    text-shadow: -10px 10px 0px #1e1c20;
 }
 #it-is-my-home div figure p:nth-child(2) {
   font-size: 5.5em;
@@ -204,7 +224,7 @@ strong {
   font-size: .42em;
 }
 @media (max-width: 900px) {
-  body {
+  #vcard {
     font-size: 50%;
   }
   #it-is-my-home div {
@@ -235,13 +255,21 @@ strong {
         display: none;
     }
 }
+@media(max-width: 375px) {
+    #vcard {
+        font-size: 40%;
+    }
+    #it-is-my-home div {
+        width: 300px;
+    }
+}
 
 /*
  CURRICULUM
  ===============================================================
  */
 #curriculum {
-    margin: 30px auto 200px auto;
+    margin: 30px auto 100px auto;
     text-align: left;
     width: 800px;
 }
@@ -256,10 +284,10 @@ strong {
 }
 #curriculum h3 a {
     font-weight: 700;
-    padding-bottom: 6px;
+    padding-bottom: 4px;
     display: inline-block;
 }
-#curriculum a:before {
+#curriculum a i {
     color: #bbb;
     -webkit-transition: all .8s ease-in;
     -moz-transition: all .8s ease-in;
@@ -267,13 +295,39 @@ strong {
 }
 #curriculum a:hover {
     border-bottom: 1px dotted #28252a; 
-    padding-bottom: 5px;
+    padding-bottom: 3px;
 }
-#curriculum a:hover:before {
+#curriculum a:hover i {
     color: #FF6952;
     -webkit-transition: all .2s ease-in;
     -moz-transition: all .2s ease-in;
     transition: all .2s ease-in;
+}
+
+#contact {
+    text-align: center;
+}
+#contact p {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    margin: 0;
+    padding: 1em;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #eee;
+}
+#contact h2 {
+    text-align: left;
+}
+#contact span {
+    margin-right: .7em;
+    white-space: nowrap;
+}
+
+#contact span i{
+    margin-right: .5em;
+    color: #bbb;
 }
 
 #skills span {
@@ -341,11 +395,11 @@ strong {
 }
 
 #experience ul li {
-    margin: .5em .3em;    
+    margin: .7em .3em;    
     font-size: .8em;
 }
 
-#hobby h3:before {
+#hobby h3 i {
     margin-right: .5em;
     font-size: 1.5em;  
     color: #777;      
@@ -357,4 +411,50 @@ strong {
 #hobby h3 small {
     font-size: .8em;
     font-weight: 400;    
+}
+
+@media (max-width: 900px) {
+    #curriculum {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: .8em;
+    }
+}
+@media (max-width: 710px) {
+    #skills {
+        line-height: 1.7em;
+    }
+    #experience p {
+        line-height: 1.5em;
+    }
+    #experience img {
+        display: none;
+    }
+    #hobby h3 {
+        line-height: 1.3em;
+    }
+}
+
+/*
+ FOOTER
+ ===============================================================
+ */
+ footer {
+    padding: 50px 0;
+    background: #28252a;  
+    color: #666;
+ }
+ #clause {
+    width: 800px;
+    margin: 0 auto;
+ }
+
+ @media (max-width: 900px) {
+    #clause {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: .8em;
+    }
 }

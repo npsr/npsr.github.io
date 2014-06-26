@@ -420,10 +420,23 @@ strong {
         margin-right: 5%;
         font-size: .8em;
     }
+    #experience ul li {
+        font-size: .9em;
+    }
 }
 @media (max-width: 710px) {
+    #curriculum {
+        margin-bottom: 50px;
+    }
+    #contact p {
+        line-height: 1.6em;
+    }
     #skills {
         line-height: 1.7em;
+    }
+    #experience article {
+        padding-bottom: 1em;
+        border-bottom: 1px dotted #d9d9d9;
     }
     #experience p {
         line-height: 1.5em;
@@ -451,10 +464,19 @@ strong {
  }
 
  @media (max-width: 900px) {
+    footer {
+        padding: 2em 0;
+    }
     #clause {
         width: 90%;
         margin-left: 5%;
         margin-right: 5%;
         font-size: .8em;
+        line-height: 1.5em;        
+    }
+}
+@media (max-width: 710px) {
+    #clause {
+        font-size: .6em;
     }
 }

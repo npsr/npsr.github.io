@@ -46,6 +46,19 @@ table {
     border-spacing: 0;
 }
 
+.clr:before,
+.clr:after {
+  content:'';
+  display:table;
+}
+.clr:after {
+  clear:both;
+}
+.clr {
+  zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+
 /*
  GLOBALS
  ===============================================================
@@ -383,6 +396,7 @@ strong {
     -moz-border-radius: 100%;    
     border-radius: 100%;
     margin-right: 1em;
+    border: 1px solid #fff;
 }
 #experience div {
     float: left;

@@ -416,7 +416,9 @@ strong {
 #hobby h3 i {
     margin-right: .5em;
     font-size: 1.5em;  
-    color: #777;      
+    color: #777;    
+    position: relative;
+    top: 6px;  
 }
 #hobby h3 {
     font-weight: 700;

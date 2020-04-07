@@ -11,8 +11,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
     margin: 0;
@@ -23,7 +23,7 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
@@ -150,14 +150,17 @@ strong {
 .icon-location:before {
     content: "\e607";
 }
+.icon-printer:before {
+  content: "\e954";
+}
 
 /*
  VCARD
  ===============================================================
  */
 
-#vcard {   
-  background: #28252a;  
+#vcard {
+  background: #37474f;
   color: #fff;
   font-weight: 900;
   display: table;
@@ -183,12 +186,14 @@ strong {
 }
 #it-is-my-home div img {
     -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;    
+    -moz-border-radius: 100%;
     border-radius: 100%;
     margin-top: 2.2em;
-    -webkit-box-shadow: -6px 10px 0px #1e1c20;
-    -moz-box-shadow: -6px 10px 0px #1e1c20;
-    box-shadow: -6px 10px 0px #1e1c20;
+    -webkit-box-shadow: -6px 10px 0px #2c3940;
+    -moz-box-shadow: -6px 10px 0px #2c3940;
+    box-shadow: -6px 10px 0px #2c3940;
+    width: 150px;
+    height: 150px;
 }
 #it-is-my-home div figure p:nth-child(1) {
   color: #85d0e0;
@@ -214,7 +219,7 @@ strong {
     -webkit-opacity: .9;
     -moz-opacity: .9;
     opacity: .9;
-    text-shadow: -10px 10px 0px #1e1c20;
+    text-shadow: -10px 10px 0px #2c3940;
 }
 #it-is-my-home div figure p:nth-child(2) {
   font-size: 5.5em;
@@ -225,9 +230,9 @@ strong {
   position: relative;
 }
 #it-is-my-home div figure p:nth-child(3) {
-  color: #6f6f6f;
+  color: #b0bec5;
   font-size: 3.2em;
-  line-height: .8em;
+  line-height: .9em;
   margin: 0;
   z-index: 9;
   position: relative;
@@ -248,6 +253,7 @@ strong {
   }
   #it-is-my-home div img {
     width: 75px;
+    height: 75px;
     -webkit-box-shadow: -6px 6px 0px #1e1c20;
     -moz-box-shadow: -6px 6px 0px #1e1c20;
     box-shadow: -6px 6px 0px #1e1c20;
@@ -292,7 +298,7 @@ strong {
 
 #curriculum h2 {
     border-bottom: 1px dotted #ddd;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
     padding-bottom: .5em;
 }
 #curriculum h3 a {
@@ -307,7 +313,7 @@ strong {
     transition: all .8s ease-in;
 }
 #curriculum a:hover {
-    border-bottom: 1px dotted #28252a; 
+    border-bottom: 1px dotted #28252a;
     padding-bottom: 3px;
 }
 #curriculum a:hover i {
@@ -343,30 +349,44 @@ strong {
     color: #bbb;
 }
 
+#skills p {
+  margin: 1.5em 0;
+}
+
+#skills p:first-of-type {
+  line-height:1.7em;
+  margin: 0 0 -1em 0;
+}
+
 #skills span {
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;    
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
     padding: .2em .7em;
-    line-height: 1em;
     margin-right: .5em;
     color: #fff;
 }
+
 #skills small {
-    color: #bbb;    
+    color: #bbb;
 }
 
 #skills .js {
-    background: #FFA652;
+    background: #ff6e40;
 }
 #skills .css {
-    background: #FF6952;
+    background: #607d8b;
 }
 #skills .html {
     background: #3894A5;
 }
+
+#skills .other {
+    background: #ab47bc;
+}
+
 #skills .php {
-    background: #436FAF;    
+    background: #436FAF;
 }
 #skills .misc {
     background: #777;
@@ -393,7 +413,7 @@ strong {
 #experience img {
     float: left;
     -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;    
+    -moz-border-radius: 100%;
     border-radius: 100%;
     margin-right: 1em;
     border: 1px solid #fff;
@@ -409,16 +429,16 @@ strong {
 }
 
 #experience ul li {
-    margin: .7em .3em;    
+    margin: .7em .3em;
     font-size: .8em;
 }
 
 #hobby h3 i {
     margin-right: .5em;
-    font-size: 1.5em;  
-    color: #777;    
+    font-size: 1.5em;
+    color: #777;
     position: relative;
-    top: 6px;  
+    top: 6px;
 }
 #hobby h3 {
     font-weight: 700;
@@ -426,7 +446,7 @@ strong {
 }
 #hobby h3 small {
     font-size: .8em;
-    font-weight: 400;    
+    font-weight: 400;
 }
 
 @media (max-width: 900px) {
@@ -471,7 +491,7 @@ strong {
  */
  footer {
     padding: 50px 0;
-    background: #28252a;  
+    background: #28252a;
     color: #666;
  }
  #clause {
@@ -494,7 +514,7 @@ strong {
         margin-left: 5%;
         margin-right: 5%;
         font-size: .8em;
-        line-height: 1.5em;        
+        line-height: 1.5em;
     }
 }
 @media (max-width: 710px) {
@@ -502,9 +522,6 @@ strong {
         font-size: .6em;
     }
 }
-
-
-
 
 @media print {
     body {

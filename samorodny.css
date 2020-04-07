@@ -166,7 +166,23 @@ strong {
   display: table;
   height: 100%;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
+#vcard .cover {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url('img/cover.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 3;
+  opacity: 0.05;
+}
+
 #it-is-my-home {
   display: table-cell;
   vertical-align: middle;
@@ -214,6 +230,8 @@ strong {
   -webkit-transition: all .2s ease-in;
   -moz-transition: all .2s ease-in;
   transition: all .2s ease-in;
+  position: relative;
+  z-index: 10;
 }
 #it-is-my-home div figure p:nth-child(1) span a:hover {
     -webkit-opacity: .9;
@@ -365,6 +383,10 @@ strong {
     padding: .2em .7em;
     margin-right: .5em;
     color: #fff;
+}
+
+#skills b {
+  font-weight: 600;
 }
 
 #skills small {

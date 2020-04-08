@@ -180,7 +180,7 @@ strong {
   background-size: cover;
   background-position: center;
   z-index: 3;
-  opacity: 0.05;
+  opacity: 0.1;
 }
 
 #it-is-my-home {
@@ -301,6 +301,33 @@ strong {
     }
 }
 
+#contact {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  text-align: center;
+  width: 100vw;
+  display block;
+  font-size: 2.5em;
+  line-height: 2em;
+  display: none;
+}
+#contact i {
+  color: #b0bec5;
+  bottom: -.15em;
+  position: relative;
+}
+
+#contact li {
+  display: inline-block;
+}
+
+@media print {
+  #contact {
+   display: block;
+  }
+}
+
 /*
  CURRICULUM
  ===============================================================
@@ -341,7 +368,7 @@ strong {
     transition: all .2s ease-in;
 }
 
-#contact {
+/* #contact {
     text-align: center;
 }
 #contact p {
@@ -365,7 +392,7 @@ strong {
 #contact span i{
     margin-right: .5em;
     color: #bbb;
-}
+} */
 
 #skills p {
   margin: 1.5em 0;

@@ -1,0 +1,130 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EENGINE#test 01</title>
+
+  <link rel="stylesheet" href="../common/common.css?v=3">
+
+  <style>
+    ul {
+      margin: 20px 0;
+    }
+    li {
+      margin-bottom: 10px;
+      position: relative;
+      margin-left: 20px;
+    }
+    li:before {
+      content: '#';
+      display: block;
+      position: absolute;
+      top: 5%;
+      left: -15px;
+      color: #ef5350;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="content">
+    <div class="disclamer">
+      Przyznam, że REACT nie jest moją najmocniejszą stroną,
+      szczgólnie, że idąc tropem reszty zadań, nie odpalałem do
+      tego specjalnie nowej aplikacji, więc piszę tylko to,
+      co rzuciło mi się w oczy. <b> W razie potrzeby, mogę
+      zadanie poprawić, przy wsparciu debuggera, natomiast
+      nie chciałem dłużej przeciągać terminu.</b>
+
+      <ul>
+        <li>Metody muszą być zbindowane do klas</li>
+        <li>Nie mutować state bezpośrednio setSatate </li>
+        <li>Brakuje return przy renderowaniu</li>
+        <li>Dalej też</li>
+        <li>nie class tylko JavaScriptowo classname4</li>
+        <li>A tu na odwrót: nie onclick, tylko onClick</li>
+        <li>Unikamy wsztrzykiwania się w główne bloki. Pd tegp są komponenty/moduły</li>
+
+      </ul>
+
+      <pre>
+        
+        class App extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+              counter: 0,
+              items: [1, 2]
+            };
+          }
+          // Bindowanie
+          increase = () => {
+            // setState (nie el.state)
+            this.setState(state => ({
+              counter: state.counter + 1
+            }));
+          };
+          // JW
+          addItem = () => {
+            // JW
+            this.setState(state => ({
+              items: [...state.items, state.items.length + 1]
+            }));
+          };
+          render() {
+            return ( <
+              React.Fragment >
+              <
+              div className = "data" >
+              <
+              div > {
+                this.state.counter
+              } < /div> <
+              ul > {
+                this.state.items.map(item => ( <
+                  li key = {
+                    item
+                  } > element {
+                    item
+                  } < /li>
+                ))
+              } <
+              /ul> < /
+              div > <
+              div className = "actions" >
+              <
+              button type = "button"
+              onClick = {
+                this.increase
+              } >
+              zwiększ <
+              /button> <
+              button type = "button"
+              onClick = {
+                this.addItem
+              } >
+              dodaj <
+              /button> < /
+              div > <
+              /React.Fragment>
+            );
+          }
+        }
+
+        ReactDOM.render( < App / > , document.getElementById("root"))
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.6.3/umd/react.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.6.3/umd/react-dom.production.min.js"></script>
+        <div id="root"></div>
+      </pre>
+    </div>
+
+  </div>
+
+
+</body>
+</html>

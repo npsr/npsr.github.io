@@ -1,0 +1,127 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EENGINE#test 03</title>
+
+  <link rel="stylesheet" href="../common/common.css?v=6">
+
+  <style>
+    .number {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2em;
+      display: block;
+    }
+    #accept {
+      display: none;
+      text-align: center;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="result" class="content">
+
+    <section class="disclamer">
+      W kodzie znajduje się metoda pobierania randomowej liczby z random.org.
+      Jakimś cudem działała, natomiast nie działa i niema do tego prawa,
+      przez wzgląd na CORS. Być może należy szukać API, natomiast zdecydowałem
+      nie wytaczać armaty na muchę i zastosowałem proste, wbudowane funkcje JS
+      dające identyczny efekt.
+    </section>
+
+    <span class="number"></span>
+    <div id="accept">
+      <button onclick="random.end()">END</button>
+      <button onclick="random.countdown(this)">Reload</button>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    class Random {
+
+      // -----------------------------------------------------------------------
+      constructor() {
+        $(()=> {
+          this.getRandom();
+        })
+
+        this.result = $('#result');
+        this.resNumber = this.result.find('.number');
+
+        this.resValue = Number;;
+      }
+
+      // -----------------------------------------------------------------------
+      getRandom() {
+
+        // Local Workaround, becouse random.org method
+        // is now not working, becouse of CORS
+        // @TODO Find other method (maby some API)
+
+        let random =  Math.floor(Math.random() * (60 - 0)) + 0;
+
+        this.resValue = parseInt( random );
+        this.displayResult(this.resValue);
+        $('#accept').show();
+
+      //
+      //   $.ajax({
+      //       "type": "GET",
+      //       "url": "http://www.random.org/integers/?num=1&min=0&max=60&col=1&base=10&format=plain&rnd=new",
+      //       "success": ( data, status, xhr ) => {
+      //         this.resValue = parseInt( data );
+      //         this.displayResult(this.resValue);
+      //         $('#accept').show();
+      //         return (this.resValue);
+      //       },
+      //       "error": () => {
+      //       }
+      //   });
+      }
+
+      // -----------------------------------------------------------------------
+      displayResult(html) {
+        $('#accept').hide();
+        this.resNumber.html(html)
+      }
+
+      // -----------------------------------------------------------------------
+      countdown() {
+
+        let i = this.resValue;
+
+        let counter = () => {
+          if(i > 0) {
+            $('#accept').css('display: none');
+            this.displayResult('Wait for: ' + i + ' seconds');
+            i --;
+          } else {
+            $('#accept').show();
+            clearInterval(counterID);
+            this.getRandom();
+          }
+        }
+
+        let counterID = setInterval(counter, 1000)
+      }
+
+      // -----------------------------------------------------------------------
+      end() {
+        $('#accept').hide();
+        this.displayResult('Thanks!');
+      }
+    }
+
+    const random = new Random;
+
+  </script>
+</body>
+</html>

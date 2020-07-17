@@ -1,0 +1,130 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EENGINE#test 06</title>
+  <link rel="stylesheet" href="../common/common.css?v=4">
+  <style>
+  .content {
+    text-align: center;
+  }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="content">
+
+    <div class="disclamer">
+      W komentarzu, w pliku źródłowym wyjaśniam brak automatycznego
+      resetowania po dojściu do zera. Według mnie wyklucza się on
+      z blokowaniem, po dojściu do zera. Tutaj jednak jest pole do
+      popisu "w razie potrzeby."
+    </div>
+
+    <form id="counter-form">
+      <input type="number">
+      <button type="submit"><b>Start</b> (<span></span> sec)</button>
+    </form>
+  </div>
+
+  <script type="text/javascript">
+
+    class Counter {
+
+      // -----------------------------------------------------------------------
+      constructor() {
+        this.params = {
+          secParamName: 'sec',
+          defaultSecTime: 5,
+          formSelector: '#counter-form'
+        }
+
+        this.counterInProgress = false;
+
+        this.secToCountdown = this.getSec(this.params.secParamName)
+        this.input = document.querySelector(this.params.formSelector + ' input[type="number"]');
+        this.submit = document.querySelector(this.params.formSelector + ' button[type="submit"]');
+        this.submitCounter = document.querySelector(this.params.formSelector + ' button[type="submit"] span');
+        this.submitText = document.querySelector(this.params.formSelector + ' button[type="submit"] b');
+
+        this.fillForm();
+        this.addFormActions();
+      }
+
+      // -----------------------------------------------------------------------
+      getSec(key) {
+        let matches = location.hash.match(new RegExp(key+'=([^&]*)'));
+        if(isNaN(matches[1]) === false && matches[1] > 0 ) {
+          return matches[1]
+        } else {
+          return this.params.defaultSecTime
+        }
+      }
+
+      // -----------------------------------------------------------------------
+      fillForm() {
+        this.input.value = this.secToCountdown;
+        this.submitCounter.innerHTML = this.secToCountdown;
+      }
+
+      // -----------------------------------------------------------------------
+      addFormActions() {
+        this.input.addEventListener('keyup', (e) => {
+          this.secToCountdown = e.target.valueAsNumber > 0 ? e.target.valueAsNumber : 5;
+          this.fillForm()
+        })
+
+        this.submit.addEventListener('click', ()=>{
+          if(!this.counterInProgress) {
+            this.countdown()
+          } else {
+            this.secToCountdown = 0;
+            this.fillForm();
+          }
+        });
+      }
+
+      // -----------------------------------------------------------------------
+      countdown() {
+        let counter = () => {
+          if(this.secToCountdown > 0) {
+            this.counterInProgress = true;
+            this.secToCountdown --;
+            this.fillForm();
+            this.submitText.innerHTML = 'Wait for'
+          } else {
+            this.counterInProgress = false;
+            this.input.disabled = true;
+            this.submit.innerHTML = 'Sent';
+            clearInterval(counterID);
+          }
+        }
+
+        let counterID = setInterval(counter, 1000)
+      }
+
+      // -----------------------------------------------------------------------
+      // @TODO: Reset function, but it have no sense, tu run
+      // it after coundown, becouse the locked stage and
+      // Sent state will be unreadable.
+
+    }
+
+    const counter = new Counter;
+
+  </script>
+</body>
+</html>

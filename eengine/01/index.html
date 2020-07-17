@@ -1,0 +1,78 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EENGINE#test 01</title>
+
+  <link rel="stylesheet" href="../common/common.css?v=5">
+
+  <style>
+    body {
+      text-align: center;
+    }
+    ul {
+      padding-left: 0;
+      margin-top: 20px;
+      width: 260px;
+      text-align: left;
+      margin: 30px auto;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      border-bottom: 1px solid #666;
+      padding-bottom: 10px;
+    }
+
+    li span {
+      float: right;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="content">
+    <input type="text" placeholder="Type something" onkeyup="updateResult(this)">
+      <ul id="result">
+        <ul>
+          <li><b>Length:</b> <span class="length">0</span></li>
+          <li><b>First Char:</b> <span class="first-char"></span></li>
+          <li><b>Last Char</b> <span class="last-char"></span></li>
+        </ul>
+      </ul>
+    </div>
+
+  <script type="text/javascript">
+
+    Object.assign(String.prototype, {
+        info() {
+          let stringInfo = {
+            length:     this.length,
+            firstChar:  this[0],
+            lastChar:   this[Object.keys(this).length -1]
+          }
+            return stringInfo;
+        }
+    });
+
+    console.log('foobar'.info());
+
+    // -----------------------------------------------------------------------
+    var updateResult = function(e) {
+      let value = e.value;
+      let divResult = document.querySelector('#result');
+
+      divResult.querySelector('.length').innerText = value.info().length
+      divResult.querySelector('.first-char').innerText = value.info().firstChar || ""
+      divResult.querySelector('.last-char').innerText = value.info().lastChar || ""
+
+    }
+
+    </script>
+</body>
+</html>
